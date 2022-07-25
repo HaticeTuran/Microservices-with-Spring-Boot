@@ -3,5 +3,6 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/demo" />
+    <file type="web" url="file://$PROJECT_DIR$/product" />
   </component>
 </project>

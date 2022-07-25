@@ -10,6 +10,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/demo" />
+            <option value="$PROJECT_DIR$/demo/product" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/product" />
+        <option name="gradleJvm" value="corretto-17" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/product" />
           </set>
         </option>
       </GradleProjectSettings>
