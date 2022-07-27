@@ -16,7 +16,7 @@ class CommentController(val repository: CommentRepository){
 
     @GetMapping
     fun findComments():Flux<Comment>{
-        return repository.findComments():
+        return repository.findComments()
     }
     @GetMapping
     fun findCommentById(Id: Int): Mono<Comment> = repository.findById(Id)
