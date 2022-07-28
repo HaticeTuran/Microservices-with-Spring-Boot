@@ -8,9 +8,9 @@ import java.time.LocalTime
 import java.util.UUID
 
 @Table("banners")
-data class Banner(@Id val bannerId: UUID,
-                  @Column("bannerUrl")val bannerUrl: String,
-                  @Column("createdDate") @CreatedDate val createdDate: LocalTime)
+data class Banner(@Id @Column("banner_id") val bannerId: UUID?,
+                  @Column("banner_url")val bannerUrl: String?,
+                  @Column("created_date") @CreatedDate val createdDate: LocalTime?)
 
 
 
