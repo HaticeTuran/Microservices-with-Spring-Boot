@@ -1,6 +1,7 @@
 package com.example.banner
 
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -16,8 +17,8 @@ class BannerContoller (val service: BannerService){
         return service.findsBanners()
     }
 
-    @GetMapping
-    fun findBannerByBannerId(id: UUID): Mono<Banner>{
+    @GetMapping("/{id}")
+    fun findBannerByBannerId(@PathVariable("id") id: UUID): Mono<Banner>{
         return service.findBannerById(id)
     }
 
