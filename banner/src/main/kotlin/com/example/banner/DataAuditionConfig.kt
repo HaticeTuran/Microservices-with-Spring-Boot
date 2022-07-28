@@ -11,5 +11,6 @@ class DataAuditionConfig {
     @Bean
     fun auditorAware():  ReactiveAuditorAware<String>? {
         return ReactiveAuditorAware { Mono.empty() }
+
     }
 }
