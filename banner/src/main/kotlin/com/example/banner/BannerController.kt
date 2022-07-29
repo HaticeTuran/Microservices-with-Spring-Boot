@@ -24,8 +24,12 @@ class BannerController (val service: BannerService){
         return service.findBannerById(id)
     }
 
+
     @PostMapping()
-    suspend fun saveBanner(@RequestBody() banner: String){
+    suspend fun saveBanner(@RequestBody() banner: Banner){
         service.saveBanner(banner)
     }
+    /*suspend fun saveBanner(@RequestBody() banner: Banner){
+        service.saveBanner(banner)
+    }*/
 }

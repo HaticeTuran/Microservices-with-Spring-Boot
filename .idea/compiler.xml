@@ -2,9 +2,10 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="demo.demo.main" target="17" />
-      <module name="demo.demo.test" target="17" />
-      <module name="demo.product" target="17" />
+      <module name="demo.demo.main~1" target="17" />
+      <module name="demo.demo.test~1" target="17" />
+      <module name="demo.product.main" target="17" />
+      <module name="demo.product.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
