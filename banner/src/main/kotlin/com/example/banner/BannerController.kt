@@ -14,6 +14,7 @@ import java.util.UUID
 @RestController
 @RequestMapping("/banner")
 class BannerController (val service: BannerService){
+
     @GetMapping()
     suspend fun findBanners(): Flow<Banner> {
         return service.findsBanners()
@@ -29,7 +30,5 @@ class BannerController (val service: BannerService){
     suspend fun saveBanner(@RequestBody() banner: Banner){
         service.saveBanner(banner)
     }
-    /*suspend fun saveBanner(@RequestBody() banner: Banner){
-        service.saveBanner(banner)
-    }*/
+
 }

@@ -9,15 +9,18 @@ import java.util.UUID
 @Service
 class ProductService(val repository: ProductRepository) {
 
+    // find all products
     suspend fun findProducts(): Flow<Product> {
         return repository.findProducts()
     }
 
+    // find a specific product
     suspend fun findProductById(id: UUID):Product?{
-        return repository.findByProductById(id)
+        return repository.findProductByProductId(id)
     }
 
-    suspend fun save( @RequestBody product: Product){
+    // save product
+    suspend fun saveProduct( @RequestBody product: Product){
         repository.save(product)
     }
 
