@@ -1,6 +1,5 @@
 package com.example.product
 
-import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column

@@ -1,4 +1,5 @@
 package com.example.comment
+import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -8,32 +9,33 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+import java.util.UUID
 
 @Service
 @RestController
 @RequestMapping("/comment")
-class CommentController(val repository: CommentRepository){
+class CommentController(val service: CommentService ){
 
     @GetMapping
-    fun findComments():Flux<Comment>{
-        return repository.findComments()
+    suspend fun findComments():Flow<Comment>{
+        return service.findComments()
     }
     @GetMapping
-    fun findCommentById(Id: Int): Mono<Comment> = repository.findById(Id)
+    suspend fun findCommentById(Id: UUID): Comment = service.findCommentById(Id)
 
     @PostMapping
-    fun saveComment(comment: Comment){
-        repository.save(comment)
+    suspend fun saveComment(comment: Comment){
+        service.saveComment(comment)
     }
 
     @PutMapping
-    fun updateCommentText(comment: Comment){
+    suspend fun updateCommentText(comment: Comment){
         //TODO
     }
 
     @DeleteMapping
-    fun deleteComment(id: Int){
-        repository.deleteById(id)
+    suspend fun deleteComment(id: Int){
+        service.deleteCommentById(id)
     }
 
 }
