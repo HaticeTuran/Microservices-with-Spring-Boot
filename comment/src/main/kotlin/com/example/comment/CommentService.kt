@@ -11,7 +11,7 @@ class CommentService(val repository: CommentRepository) {
         return repository.findComments()
     }
 
-    suspend fun findCommentById(id:UUID): Comment{
+    suspend fun findCommentById(id:UUID): Comment?{
         return repository.findCommentById(id)
     }
 

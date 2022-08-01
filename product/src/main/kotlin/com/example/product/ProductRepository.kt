@@ -10,8 +10,12 @@ import java.util.UUID
 interface ProductRepository: CoroutineCrudRepository<Product, UUID> {
 
 
+    /*@Query("SELECT FROM products P WHERE P.product_id = productId")
+    suspend fun findProductByProductId(productId: UUID): Product?*/
+
     @Query("SELECT FROM products P WHERE P.productId = productId")
     suspend fun findProductByProductId(productId: UUID): Product?
+
 
     @Query("select * from products")
     suspend fun findProducts(): Flow<Product>

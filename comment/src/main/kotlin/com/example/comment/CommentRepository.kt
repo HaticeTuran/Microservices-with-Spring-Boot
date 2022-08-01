@@ -9,15 +9,15 @@ import java.util.UUID
 @Repository
 interface CommentRepository : CoroutineCrudRepository<Comment, Int> {
 
-    @Query("SELECT * FROM comment")
+    @Query("SELECT * FROM comments")
     suspend fun findComments():Flow<Comment>
 
-    @Query("SELECT * from comment c where c.commentId = id ")
-    suspend fun findCommentById(id: UUID): Comment
+
+    @Query("SELECT FROM comments c WHERE c.comment_id = id")
+    suspend fun findCommentById(id: UUID): Comment?
 
     @Query("DELETE FROM Comments c WHERE c.comment_id = id")
     suspend fun deleteById(id:UUID)
-
 
 
 }

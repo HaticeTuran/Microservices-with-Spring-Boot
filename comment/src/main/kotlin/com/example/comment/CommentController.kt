@@ -15,8 +15,11 @@ class CommentController(val service: CommentService ){
     suspend fun findComments():Flow<Comment>{
         return service.findComments()
     }
-    @GetMapping("{/id}")
-    suspend fun findCommentById(@PathVariable("id") id: UUID): Comment = service.findCommentById(id)
+
+    @GetMapping("/{id}")
+    suspend fun findCommentById(@PathVariable("id") id: UUID): Comment? {
+        return service.findCommentById(id)
+    }
 
     @PostMapping()
     suspend fun saveComment(@RequestBody comment: Comment){
@@ -28,7 +31,7 @@ class CommentController(val service: CommentService ){
         //TODO
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     suspend fun deleteComment(@PathVariable("id") id: UUID){
         service.deleteCommentById(id)
     }
