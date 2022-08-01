@@ -34,7 +34,7 @@ class CommentController(val service: CommentService ){
     }
 
     @DeleteMapping
-    suspend fun deleteComment(id: Int){
+    suspend fun deleteComment(id: UUID){
         service.deleteCommentById(id)
     }
 

@@ -8,7 +8,7 @@ import java.util.UUID
 class CommentService(val repository: CommentRepository) {
 
     suspend fun findComments():Flow<Comment>{
-        repository.findComments()
+        return repository.findComments()
     }
 
     suspend fun findCommentById(id:UUID): Comment{
