@@ -1,5 +1,7 @@
-package com.example.banner
+package com.example.banner.bannerManagement
 
+import com.example.banner.bannerManagement.Banner
+import com.example.banner.bannerManagement.BannerService
 import kotlinx.coroutines.flow.Flow
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping

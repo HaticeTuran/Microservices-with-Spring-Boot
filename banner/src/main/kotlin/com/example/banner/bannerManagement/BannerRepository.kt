@@ -1,7 +1,6 @@
-package com.example.banner
+package com.example.banner.bannerManagement
 
-import kotlinx.coroutines.flow.Flow
-import org.springframework.data.r2dbc.repository.Query
+import com.example.banner.bannerManagement.Banner
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import java.util.UUID
 
