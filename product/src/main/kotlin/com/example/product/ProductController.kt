@@ -1,6 +1,7 @@
 package com.example.product
 
 import kotlinx.coroutines.flow.Flow
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -13,7 +14,7 @@ import java.util.UUID
 @RestController
 @RequestMapping("/product")
 class ProductController (val service: ProductService){
-
+     //Get Methods
     @GetMapping()
     suspend fun findProducts(): Flow<Product> {
         return service.findProducts()
@@ -24,8 +25,15 @@ class ProductController (val service: ProductService){
         return service.findProductById(id);
     }
 
+    //Post methods
     @PostMapping()
     suspend fun saveProduct( @RequestBody product: Product){
         service.saveProduct(product)
+    }
+
+    //Delete Methods
+    @DeleteMapping("/{id}")
+    suspend fun deleteProductById(@PathVariable("id") id: UUID){
+        service.deleteProductById(id)
     }
 }

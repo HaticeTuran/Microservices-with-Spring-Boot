@@ -1,4 +1,4 @@
-package com.example.comment
+package com.example.comment.commentManagement
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
@@ -10,6 +10,6 @@ import java.util.*
 
 @Table("comments")
 data class Comment(@Id @Column("comment_id") val commentId: UUID?,
-                   @Column("comment_text") val CommentText:String,
-                   @Column("created_date") val createdDate: LocalTime?,
-                   @Column("product_id") @CreatedDate val ProductId: UUID)
+                   @Column("comment_text") val CommentText:String?,
+                   @Column("created_date") @CreatedDate val createdDate: LocalDate?,
+                   @Column("product_id") val ProductId: UUID)

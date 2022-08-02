@@ -1,16 +1,15 @@
-package com.example.comment
+package com.example.comment.commentManagement
 import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.*
-import reactor.core.publisher.Flux
-import reactor.core.publisher.Mono
 import java.util.UUID
 
 @Service
 @RestController
 @RequestMapping("/comment")
-class CommentController(val service: CommentService ){
+class CommentController(val service: CommentService){
 
+    // Get Methods
     @GetMapping()
     suspend fun findComments():Flow<Comment>{
         return service.findComments()
@@ -21,16 +20,13 @@ class CommentController(val service: CommentService ){
         return service.findCommentById(id)
     }
 
+    // Post Methods
     @PostMapping()
     suspend fun saveComment(@RequestBody comment: Comment){
         service.saveComment(comment)
     }
 
-    @PutMapping()
-    suspend fun updateCommentText(comment: Comment){
-        //TODO
-    }
-
+    // Delete Methods
     @DeleteMapping("/{id}")
     suspend fun deleteComment(@PathVariable("id") id: UUID){
         service.deleteCommentById(id)

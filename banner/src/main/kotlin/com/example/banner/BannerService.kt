@@ -14,11 +14,14 @@ class BannerService(val repository: BannerRepository) {
     }
 
     suspend fun findBannerById(id: UUID): Banner? {
-        return repository.findBannerByBannerId(id)
+        return repository.findById(id)
     }
 
     suspend fun saveBanner(banner: Banner){
-        //val bn = Banner(null,banner,null)
         repository.save(banner)
+    }
+
+    suspend fun deleteBannerById(id: UUID){
+        repository.deleteById(id)
     }
 }
