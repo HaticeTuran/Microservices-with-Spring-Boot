@@ -1,9 +1,10 @@
-package com.example.product
+package com.example.product.productManagement
 
+import com.example.product.productManagement.Product
+import com.example.product.productManagement.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.RequestBody
-import reactor.core.publisher.Flux
 import java.util.UUID
 
 @Service
@@ -15,7 +16,7 @@ class ProductService(val repository: ProductRepository) {
     }
 
     // find a specific product
-    suspend fun findProductById(id: UUID):Product?{
+    suspend fun findProductById(id: UUID): Product?{
         return repository.findById(id)
     }
 

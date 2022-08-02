@@ -1,7 +1,6 @@
-package com.example.product
+package com.example.product.productManagement
 
-import kotlinx.coroutines.flow.Flow
-import org.springframework.data.r2dbc.repository.Query
+import com.example.product.productManagement.Product
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Repository
 import java.util.UUID

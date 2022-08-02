@@ -1,4 +1,4 @@
-package com.example.product
+package com.example.product.productManagement
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id

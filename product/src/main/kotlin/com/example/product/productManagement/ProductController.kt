@@ -1,4 +1,4 @@
-package com.example.product
+package com.example.product.productManagement
 
 import kotlinx.coroutines.flow.Flow
 import org.springframework.web.bind.annotation.DeleteMapping
