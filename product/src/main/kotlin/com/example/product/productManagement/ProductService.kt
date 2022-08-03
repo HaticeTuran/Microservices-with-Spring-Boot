@@ -11,7 +11,7 @@ import java.util.UUID
 class ProductService(val repository: ProductRepository) {
 
     // find all products
-    suspend fun findProducts(): Flow<Product> {
+    fun findProducts(): Flow<Product> {
         return repository.findAll()
     }
 

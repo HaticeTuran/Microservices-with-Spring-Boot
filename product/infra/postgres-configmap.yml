@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: product-postgres-conf
+data:
+  host: 10.34.48.3
+  name: products

@@ -7,8 +7,8 @@ import java.time.LocalTime
 import java.util.*
 
 data class productRequest (val productId: UUID?,
-                           val productName: String?,
-                           val list_price: Int?,
-                           val quantityInStock:Int?,
+                           val productName: String,
+                           val list_price: Int,
+                           val quantityInStock:Int,
                            val productDescription: String?,
                            val createdDate: LocalTime?)

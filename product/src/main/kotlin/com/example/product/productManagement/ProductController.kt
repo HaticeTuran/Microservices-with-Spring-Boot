@@ -16,7 +16,7 @@ import java.util.UUID
 class ProductController (val service: ProductService){
      //Get Methods
     @GetMapping()
-    suspend fun findProducts(): Flow<Product> {
+     fun findProducts(): Flow<Product> {
         return service.findProducts()
     }
 
