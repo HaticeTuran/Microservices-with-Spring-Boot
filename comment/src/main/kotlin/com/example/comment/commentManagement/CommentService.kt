@@ -4,6 +4,7 @@ import com.example.comment.commentManagement.Comment
 import com.example.comment.commentManagement.CommentRepository
 import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.PathVariable
 import java.util.UUID
 
 @Service
@@ -23,6 +24,10 @@ class CommentService(val repository: CommentRepository) {
 
     suspend fun deleteCommentById(id: UUID){
         repository.deleteById(id)
+    }
+
+    suspend fun updateComment(id: UUID, comment: Comment){
+        repository.updateComment(id,comment)
     }
 
 }

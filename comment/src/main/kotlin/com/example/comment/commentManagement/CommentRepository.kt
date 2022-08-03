@@ -11,5 +11,9 @@ import java.util.UUID
 interface CommentRepository : CoroutineCrudRepository<Comment, UUID> {
 
     //TO DO
+    //@Query("UPDATE comments SET comment_text="+ comment.CommentText +"product_id=? WHERE comment_id=id;")
+    suspend fun updateComment(id: UUID, comment: Comment){
+        //TODO
+    }
 
 }

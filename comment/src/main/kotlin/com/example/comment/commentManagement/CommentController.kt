@@ -32,4 +32,10 @@ class CommentController(val service: CommentService){
         service.deleteCommentById(id)
     }
 
+    //update Methods
+    @PutMapping("/{id}")
+    suspend fun updateComment(@PathVariable("id") id: UUID ,@RequestBody comment: Comment){
+        service.updateComment(id,comment)
+    }
+
 }
