@@ -13,7 +13,7 @@ import java.util.UUID
 @Table("products")
 data class Product(@Id @Column("product_id") val productId: UUID?,
                    @Column("product_name")  val productName: String,
-                   @Column("list_price")  val listPrice: BigDecimal?,
+                   @Column("list_price")  val listPrice: Int?,
                    @Column("quantity_in_stock")  val quantityInStock:Int?,
                    @Column("product_description")  val productDescription: String,
                    @Column("created_date") @CreatedDate val createdDate: LocalDateTime?) {

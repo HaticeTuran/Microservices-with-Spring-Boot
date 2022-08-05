@@ -29,6 +29,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     implementation("org.flywaydb:flyway-core")
+    testImplementation("io.mockk:mockk:1.12.5")
 }
 
 tasks.withType<KotlinCompile> {
