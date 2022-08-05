@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS public.products
     list_price integer,
     quantity_in_stock integer,
     product_description character varying NOT NULL,
-    created_date time with time zone NOT NULL,
+    created_date timestamp with time zone NOT NULL,
     CONSTRAINT products_pkey PRIMARY KEY (product_id)
 )

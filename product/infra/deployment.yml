@@ -1,6 +1,6 @@
 kind: Service
-apiVersion: v1
-metadata:
+apiVersion: v1  #apiversion
+metadata: # Metadata of the resource kind we are creating
   name: product-api
   labels:
     name: product-api
@@ -15,14 +15,14 @@ spec:
 
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: product-api
 spec:
   selector:
     matchLabels:
       app: product-api
-  replicas: 0
+  replicas: 0 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
