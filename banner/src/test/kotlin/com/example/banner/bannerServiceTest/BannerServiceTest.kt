@@ -1,4 +1,4 @@
-package com.example.banner.service
+package com.example.banner.bannerServiceTest
 
 import com.example.banner.bannerManagement.Banner
 import com.example.banner.bannerManagement.BannerRepository

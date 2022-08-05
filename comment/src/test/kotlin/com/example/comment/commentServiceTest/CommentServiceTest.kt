@@ -1,4 +1,4 @@
-package com.example.comment.commentTest
+package com.example.comment.commentServiceTest
 
 import com.example.comment.commentManagement.Comment
 import com.example.comment.commentManagement.CommentRepository
