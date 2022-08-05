@@ -3,11 +3,13 @@ package com.example.banner.bannerServiceTest
 import com.example.banner.bannerManagement.Banner
 import com.example.banner.bannerManagement.BannerRepository
 import com.example.banner.bannerManagement.BannerService
+import com.example.banner.exception.NotFoundException
 import io.mockk.coEvery
 import org.junit.jupiter.api.Test
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.assertThrows
 import java.util.UUID
 
 class BannerServiceTest {
@@ -27,6 +29,19 @@ class BannerServiceTest {
 
         //Then
         assertEquals(expected,actual)
+    }
+
+    @Test
+    fun `when BannerService findBannerById called with unknown id it should throw Exception`(): Unit = runBlocking{
+        //Given
+        val bannerId = UUID.randomUUID()
+        coEvery { bannerService.findBannerById(bannerId) } returns null
+
+        //When-Then
+        assertThrows<NotFoundException> {
+            bannerService.findBannerById(bannerId)
+        }
+
     }
 
 }

@@ -1,7 +1,7 @@
 package com.example.banner.bannerManagement
 
-import com.example.banner.bannerManagement.Banner
-import com.example.banner.bannerManagement.BannerRepository
+
+import com.example.banner.exception.NotFoundException
 import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 import java.util.UUID
@@ -14,7 +14,7 @@ class BannerService(val repository: BannerRepository) {
     }
 
     suspend fun findBannerById(id: UUID): Banner? {
-        return repository.findById(id)
+        return repository.findById(id) ?: throw NotFoundException()
     }
 
     suspend fun saveBanner(banner: Banner){
