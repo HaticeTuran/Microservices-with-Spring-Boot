@@ -41,7 +41,6 @@ class BannerServiceTest {
         assertThrows<NotFoundException> {
             bannerService.findBannerById(bannerId)
         }
-
     }
 
 }

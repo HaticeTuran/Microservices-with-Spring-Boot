@@ -2,6 +2,7 @@ package com.example.comment.commentManagement
 
 import com.example.comment.commentManagement.Comment
 import com.example.comment.commentManagement.CommentRepository
+import com.example.comment.exception.NotFoundException
 import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.PathVariable
@@ -15,7 +16,7 @@ class CommentService(val repository: CommentRepository) {
     }
 
     suspend fun findCommentById(id:UUID): Comment?{
-        return repository.findById(id)
+        return repository.findById(id) ?: throw NotFoundException()
     }
 
     suspend fun saveComment(comment: Comment){
