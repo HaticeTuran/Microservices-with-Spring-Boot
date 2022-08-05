@@ -16,6 +16,6 @@ data class Product(@Id @Column("product_id") val productId: UUID?,
                    @Column("list_price")  val listPrice: Int?,
                    @Column("quantity_in_stock")  val quantityInStock:Int?,
                    @Column("product_description")  val productDescription: String,
-                   @Column("created_date") @CreatedDate val createdDate: LocalDateTime?) {
+                   @Column("created_date") @CreatedDate val createdDate: LocalTime?) {
 
 }
