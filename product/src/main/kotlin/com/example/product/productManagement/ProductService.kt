@@ -1,7 +1,6 @@
 package com.example.product.productManagement
 
-import com.example.product.productManagement.Product
-import com.example.product.productManagement.ProductRepository
+import com.example.product.productManagement.exception.NotFoundException
 import kotlinx.coroutines.flow.Flow
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.RequestBody
@@ -17,7 +16,7 @@ class ProductService(val repository: ProductRepository) {
 
     // find a specific product
     suspend fun findProductById(id: UUID): Product?{
-        return repository.findById(id)
+        return repository.findById(id) ?: throw NotFoundException()
     }
 
     // save product
