@@ -10,6 +10,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.assertThrows
+import java.time.LocalDateTime
 import java.util.UUID
 
 class BannerServiceTest {
@@ -21,7 +22,7 @@ class BannerServiceTest {
     fun `when BannerService findBannerById called it should return Banner`()= runBlocking{
         //Given
         val bannerId =UUID.randomUUID()
-        val expected = Banner(bannerId,bannerUrl = "hello",createdDate = null)
+        val expected = Banner(bannerId,bannerUrl = "hello",createdDate = LocalDateTime.now())
         coEvery { bannerRepository.findById(bannerId)} returns expected
 
         //When

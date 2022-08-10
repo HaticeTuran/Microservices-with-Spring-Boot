@@ -11,6 +11,7 @@ import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import org.junit.platform.commons.logging.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest
 import org.springframework.boot.test.context.TestConfiguration
@@ -19,7 +20,6 @@ import org.springframework.core.io.ClassPathResource
 import org.springframework.r2dbc.connection.init.CompositeDatabasePopulator
 import org.testcontainers.containers.JdbcDatabaseContainer
 import org.testcontainers.containers.PostgreSQLContainer
-import org.testcontainers.containers.PostgreSQLContainerProvider
 import org.testcontainers.utility.DockerImageName
 import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator
@@ -36,7 +36,7 @@ fun postgres(imageName: String, opts: JdbcDatabaseContainer<Nothing>.() -> Unit 
 @Testcontainers
 class BannerIntegrationTests {
 
-    private val bannerId = UUID.randomUUID()
+    //private val logger = LoggerFactory.getLogger(this::javaClass)
     private lateinit var banner : Banner
 
     @Container
@@ -69,7 +69,8 @@ class BannerIntegrationTests {
     }
     @BeforeEach
     fun initVal()= runBlocking {
-        banner = bannerRepository.save(Banner(null,"url",null))
+        val date = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS)
+        banner = bannerRepository.save(Banner(null,"url",date))
     }
 
 
@@ -81,10 +82,14 @@ class BannerIntegrationTests {
     @Test
     fun `when a banner was inserted in db, db should return exactly this banner`() = runBlocking{
 
-        val actual = bannerRepository.save(Banner(null,"skfhjs", LocalTime.now().truncatedTo(ChronoUnit.MILLIS)))
+        val actual = bannerRepository.save(Banner(null,"skfhjs", LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS)))
         val expected = bannerRepository.findById(actual.bannerId!!)
-        println(actual.toString())
-        println(expected)
         Assertions.assertEquals(expected,actual)
+    }
+
+    @Test
+    fun `is size of db one`(){
+        val banners = bannerRepository.findAll()
+        //TODO
     }
 }
