@@ -33,9 +33,9 @@ class CommentController(val service: CommentService){
     }
 
     //update Methods
-    @PutMapping("/{id}")
+    /*@PutMapping("/{id}")
     suspend fun updateComment(@PathVariable("id") id: UUID ,@RequestBody comment: Comment){
         service.updateComment(id,comment)
-    }
+    }*/
 
 }

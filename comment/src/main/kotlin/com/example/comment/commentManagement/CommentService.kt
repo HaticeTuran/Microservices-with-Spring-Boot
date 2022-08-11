@@ -27,8 +27,8 @@ class CommentService(val repository: CommentRepository) {
         repository.deleteById(id)
     }
 
-    suspend fun updateComment(id: UUID, comment: Comment){
+    /*suspend fun updateComment(id: UUID, comment: Comment){
         repository.updateComment(id,comment)
-    }
+    }*/
 
 }
